@@ -29,11 +29,7 @@
                                             <a href="{{ url('tipo/' . $tipo->id) }}" class="btn btn-primary btn-sm">
                                                 Editar
                                             </a>
-                                            {!! Form::open([
-                                                'method' => 'DELETE',
-                                                'url' => 'tipo/' . $tipo->id,
-                                                'style' => 'display:inline',
-                                            ]) !!}
+                                            {!! Form::open(['method' => 'DELETE', 'url' => 'tipo/' . $tipo->id, 'style' => 'display:inline']) !!}
                                             <button type="submit" class="btn btn-danger btn-sm">
                                                 Excluir
                                             </button>
