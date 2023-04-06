@@ -6,51 +6,51 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    Lista de Tipos
-                    <a href="{{ url('tipo/create') }}" class="btn btn-success btn-sm float-end">
-                        Novo Tipo
+                    Lista de Local
+                    <a href="{{ url('local/create') }}" class="btn btn-success btn-sm float-end">
+                        Novo Local
                     </a>
                 </div>
                 <div class="card-body">
                     @if(Session::has('mensagem_sucesso'))
                     <div class="alert alert-success">
-                        {{ Session::get('mensagem_sucesso')}}
+                        {{ Session::get('mensagem_sucesso') }}
                     </div>
                     @endif
                     <table class="table table-sm table-hover table-bordered">
                         <thead>
                             <tr>
                                 <th>Código</th>
-                                <th>Titulo</th>
+                                <th>Nome</th>
                                 <th>Opções</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($tipos as $tipo)
+                            @forelse ($locais as $local)
                             <tr>
-                                <td>{{ $tipo->id }}</td>
-                                <td>{{ $tipo->titulo }}</td>
+                                <td>{{ $local->id }}</td>
+                                <td>{{ $local->nome }}</td>
                                 <td>
-                                    <a href="{{ url('tipo/' . $tipo->id) }}" class="btn btn-primary btn-sm">
+                                    <a href="{{ url('local/' . $local->id) }}" class="btn btn-primary btn-sm">
                                         Editar
                                     </a>
-                                    {!! Form::open(['method' => 'DELETE', 'url' => 'tipo/' . $tipo->id, 'style' =>
+                                    {!! Form::open(['method' => 'DELETE', 'url' => 'local/' . $local->id, 'style' =>
                                     'display:inline']) !!}
-                                    <button type="submit" class="btn btn-danger btn-sm">
-                                        Excluir
-                                    </button>
+                                    <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
                                     {!! Form::close() !!}
                                 </td>
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="3"> Não há item para listar!</td>
+                                <td colspan="3">
+                                    Não há itens para listar!
+                                </td>
                             </tr>
                             @endforelse
                         </tbody>
                     </table>
                     <div class="pagination justify-content-center">
-                        {{ $tipos->links() }}
+                        {{ $locais->links() }}
                     </div>
                 </div>
             </div>

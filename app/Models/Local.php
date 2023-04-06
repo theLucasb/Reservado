@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tipo extends Model
+class Local extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['titulo', 'icone'];
+    protected $fillable = ['nome', 'endereco'];
+    protected $table = 'locais';
 }

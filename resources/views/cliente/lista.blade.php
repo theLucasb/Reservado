@@ -6,9 +6,9 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    Lista de Tipos
-                    <a href="{{ url('tipo/create') }}" class="btn btn-success btn-sm float-end">
-                        Novo Tipo
+                    Lista de Clientes
+                    <a href="{{ url('cliente/create') }}" class="btn btn-success btn-sm float-end">
+                        Novo Cliente
                     </a>
                 </div>
                 <div class="card-body">
@@ -21,20 +21,24 @@
                         <thead>
                             <tr>
                                 <th>Código</th>
-                                <th>Titulo</th>
+                                <th>Nome</th>
+                                <th>Endereço</th>
+                                <th>Telefone</th>
                                 <th>Opções</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($tipos as $tipo)
+                            @forelse ($clientes as $cliente)
                             <tr>
-                                <td>{{ $tipo->id }}</td>
-                                <td>{{ $tipo->titulo }}</td>
+                                <td>{{ $cliente->id }}</td>
+                                <td>{{ $cliente->nome }}</td>
+                                <td>{{ $cliente->endereco }}</td>
+                                <td>{{ $cliente->fone }}</td>
                                 <td>
-                                    <a href="{{ url('tipo/' . $tipo->id) }}" class="btn btn-primary btn-sm">
+                                    <a href="{{ url('cliente/' . $cliente->id) }}" class="btn btn-primary btn-sm">
                                         Editar
                                     </a>
-                                    {!! Form::open(['method' => 'DELETE', 'url' => 'tipo/' . $tipo->id, 'style' =>
+                                    {!! Form::open(['method' => 'DELETE', 'url' => 'cliente/' . $cliente->id, 'style' =>
                                     'display:inline']) !!}
                                     <button type="submit" class="btn btn-danger btn-sm">
                                         Excluir
@@ -50,7 +54,7 @@
                         </tbody>
                     </table>
                     <div class="pagination justify-content-center">
-                        {{ $tipos->links() }}
+                        {{ $clientes->links() }}
                     </div>
                 </div>
             </div>
