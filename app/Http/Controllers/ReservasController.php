@@ -19,9 +19,7 @@ class ReservasController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $reservas = Reserva::with('equipamento', 'local', 'cliente')->paginate(25);
