@@ -26,9 +26,14 @@
                     @if(Route::is('tipo.show'))
                     {!! Form::model($tipo,
                     ['method'=>'PATCH',
+                    'files'=>'True',
                     'url'=>'tipo/'.$tipo->id]) !!}
+                    <div class="text-center">
+                        <img src="{{ url('/') }}/uploads/tipos/{{ $tipo->icone }}" alt="{{ $tipo->titulo }}"
+                            title="{{ $tipo->titulo }}" class="img-thumbnail" width="150" />
+                    </div>
                     @else
-                    {!! Form::open(['method' => 'POST', 'url' => 'tipo']) !!}
+                    {!! Form::open(['method' => 'POST', 'files' => 'True','url' => 'tipo']) !!}
                     @endif
 
                     {!! Form::label('titulo', 'Titulo') !!}
@@ -39,13 +44,9 @@
                     'required',
                     'maxlength'=>50,
                     'autofocus']) !!}
-                    {!! Form::label('icone', 'Icone (URL)') !!}
-                    {!! Form::input('text', 'icone',
-                    null,
-                    ['class'=>'form-control',
-                    'placeholder'=>'Titulo',
-                    'required',
-                    'maxlength'=>150]) !!}
+                    {!! Form::label('icone', 'Icone') !!}
+                    {!! Form::file('icone',
+                    ['class'=>'form-control btn-sm']) !!}
                     {!! Form::submit('Salvar',
                     ['class' => 'float-end btn btn-primary mt-3']) !!}
                     {!! Form::close() !!}
